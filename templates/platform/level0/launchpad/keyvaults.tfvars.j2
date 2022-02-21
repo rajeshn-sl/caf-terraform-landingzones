@@ -28,6 +28,12 @@ keyvaults = {
         secret_permissions = ["Set", "Get", "List", "Delete", "Purge", "Recover"]
       }
 {% endif %}
+{% if config.platform_identity.azuread_identity_mode == 'service_principal' %}
+      # ADDED TO ADD KV ACCESS POLICY FOR LOGGED IN USER
+      logged_in_user = {
+        secret_permissions = ["Set", "Get", "List", "Delete", "Purge", "Recover"]
+      }
+{% endif %}
     }
 
   }
@@ -60,6 +66,12 @@ keyvaults = {
         secret_permissions = ["Set", "Get", "List", "Delete", "Purge", "Recover"]
       }
 {% endif %}
+{% if config.platform_identity.azuread_identity_mode == 'service_principal' %}
+      # ADDED TO ADD KV ACCESS POLICY FOR LOGGED IN USER
+      logged_in_user = {
+        secret_permissions = ["Set", "Get", "List", "Delete", "Purge", "Recover"]
+      }
+{% endif %}
     }
 
   }
@@ -89,6 +101,12 @@ keyvaults = {
       logged_in_user = {
         # if the key is set to "logged_in_user" add the user running terraform in the keyvault policy
         # More examples in /examples/keyvault
+        secret_permissions = ["Set", "Get", "List", "Delete", "Purge", "Recover"]
+      }
+{% endif %}
+{% if config.platform_identity.azuread_identity_mode == 'service_principal' %}
+      # ADDED TO ADD KV ACCESS POLICY FOR LOGGED IN USER
+      logged_in_user = {
         secret_permissions = ["Set", "Get", "List", "Delete", "Purge", "Recover"]
       }
 {% endif %}
